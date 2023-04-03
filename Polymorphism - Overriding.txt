@@ -1,0 +1,108 @@
+// Polymorphism - Overriding
+import java.util.Scanner;
+class Student
+{
+    String fname,lname;
+    int age,sscore,hscore;
+    Student()
+    {
+        System.out.println("Object created");
+    }
+    Student(String nm)
+    {
+        this.fname=nm;
+    }
+
+    void studRegistration()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter your first name: ");
+        fname = sc.nextLine();
+        System.out.println("Enter your last name: ");
+        lname = sc.nextLine();
+        System.out.println("Enter your age: ");
+        age = sc.nextInt();
+        System.out.println("Enter yor secondary score: ");
+        sscore = sc.nextInt();
+        System.out.println("Enter your higher secondary score: ");
+        hscore = sc.nextInt();
+    }
+
+    void studRegistration(String ln)
+    {
+        fname="Tony";
+        lname=ln;
+    }
+
+    void studRegistration(String fn,String ln,int ag,int scr,int hscr)
+    {
+        this.fname=fn;
+        this.lname=ln;
+        this.age=ag;
+        this.sscore=scr;
+        this.hscore=hscr;
+    }
+    void studRegistration(int ag,int scr,int hscr)
+    {
+        this.age=ag;
+        this.sscore=scr;
+        this.hscore=hscr;
+    }
+
+    void display()
+    {
+        System.out.println("First name:" +this.fname);
+        System.out.println("Last name: "+this.lname);
+        System.out.println("Age:" +this.age);
+        System.out.println("Secondary Score:" +this.sscore);
+        System.out.println("Higher Secondary:" +this.hscore);
+    }
+}
+    
+class ProgAdd extends Student
+{
+   String progm;
+   void upallocate(int hsc)
+   {
+	if (hsc<=100 && hsc>=90)
+	{
+	progm="BCA";
+	}
+	else if (hsc<90 && hsc>=80)
+ 	{
+	progm="BCom";
+	}
+	else if (hsc<80 && hsc>=70)
+	{
+	progm="BA";
+	}
+	else
+	{
+	progm="Admission not Allowed";
+	}
+   }
+}
+
+class Conference extend ProgAdd;
+{
+String reg="No";
+String track;
+String papertitle;
+
+}
+
+public class TestCode
+{
+	public static void main(String[] args)
+	{
+		ProgAdd pd = new ProgAdd();
+		pd.studRegistration();
+		System.out.println("Your score HSC score is:" +pd.hscore);
+		pd.upallocate(pd.hscore);
+		System.out.println("Based on your hscore" + pd.progm + "Program is alloted");
+	}
+}
+
+
+
+   
